@@ -31,8 +31,6 @@ def run(arr):
     return answer
 
 
-
-
 if __name__ == "__main__":
     temps = [72, 73, 78, 75, 74, 80, 77]
     print(monotonic_stack(temps))
