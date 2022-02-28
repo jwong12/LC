@@ -5,8 +5,9 @@
 # time complexity: O(nlogn)
 # space complexity: O(1)
 def find_the_duplicate(nums):
-    low = 0
+    low = 1
     high = len(nums)
+    duplicate = -1
 
     while low <= high:
         curr = (low + high) // 2
@@ -21,6 +22,6 @@ def find_the_duplicate(nums):
 
 
 if __name__ == "__main__":
-    arr = [1, 3, 4, 2, 2]
+    arr = [1, 2, 4, 3, 3]
     print(find_the_duplicate(arr))
 
