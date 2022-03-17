@@ -74,6 +74,37 @@ def decode_string_2stacks(s):
     return decoded_str
 
 
+def decoded_string_rec(s):
+    index = 0
+
+    def recursion():
+        nonlocal index
+        result = ''
+        while index < len(s) and s[index] != ']':
+            if not s[index].isdigit():
+                result += s[index]
+                index += 1
+            else:
+                num_str = ''
+                while s[index].isdigit():
+                    num_str += s[index]
+                    index += 1
+
+                k = int(num_str)
+                index += 1
+                decoded_str = recursion()
+                index += 1
+
+                while k > 0:
+                    result += decoded_str
+                    k -= 1
+
+        return result
+
+    return recursion()
+
+
 if __name__ == '__main__':
     print(decode_string_2stacks('3[a2[cd]]4[b]'))
+    print(decoded_string_rec('3[a2[cd]]4[b]'))
 
